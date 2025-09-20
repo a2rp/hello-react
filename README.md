@@ -1,18 +1,22 @@
-![alt text](image.png)
+# hello-react
 
-# react-vite-basic
+A tiny, production-quality **Hello React** micro-app built with **Vite + styled-components**.  
+Clean tokens (via CSS variables), a11y-first UI, and a polished baseline to start any micro-app.
 
-Minimal starter using React 18.2 + Vite
+-   **Code (GitHub):** https://github.com/a2rp/hello-react
 
-## Features
+## What this proves
 
--   React 18.2.0
--   Vite
--   No React Router
+-   Modern React app renders a clean, accessible UI.
+-   Component-scoped styling with `styled-components`.
+-   Design tokens via `:root` CSS variables (keep globals minimal).
+-   Minimal state & interactions (counter) to validate reactivity.
 
-## Getting Started
+## Quick Start
 
 ```bash
-npm install
+git clone https://github.com/a2rp/hello-react.git
+cd hello-react
+npm i
 npm run dev
 ```
