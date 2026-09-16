@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa6";
 import { FiCode, FiFacebook, FiHeart, FiMail, FiUser } from "react-icons/fi";
 import styled from "styled-components";
@@ -6,7 +7,7 @@ const links = [["Portfolio", "https://www.ashishranjan.net", FiUser], ["GitHub",
 const support = [["Support", "https://a2rp-donation-page.netlify.app/"], ["Buy Me a Coffee", "https://buymeacoffee.com/a2rp"], ["Patreon", "https://patreon.com/a2rp"]];
 
 export default function Footer() {
-    return <FooterWrap><FooterLinks>{links.map(([label, href, Icon]) => <a key={label} href={href} target="_blank" rel="noopener noreferrer"><Icon />{label}</a>)}</FooterLinks><FooterLinks>{support.map(([label, href]) => <a key={label} href={href} target="_blank" rel="noopener noreferrer"><FiHeart />{label}</a>)}</FooterLinks><small>Copyright &copy; {new Date().getFullYear()} <a href="https://www.ashishranjan.net" target="_blank" rel="noopener noreferrer">Ashish Ranjan</a></small></FooterWrap>;
+    return <FooterWrap><FooterLinks>{links.map(([label, href, Icon]) => <a key={label} href={href} target="_blank" rel="noopener noreferrer">{createElement(Icon)}{label}</a>)}</FooterLinks><FooterLinks>{support.map(([label, href]) => <a key={label} href={href} target="_blank" rel="noopener noreferrer"><FiHeart />{label}</a>)}</FooterLinks><small>Copyright &copy; {new Date().getFullYear()} <a href="https://www.ashishranjan.net" target="_blank" rel="noopener noreferrer">Ashish Ranjan</a></small></FooterWrap>;
 }
 
 const FooterWrap = styled.footer`width: min(720px, 92vw); margin: 0 auto 2rem; padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,.1); color: var(--muted);`;
