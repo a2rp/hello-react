@@ -1,4 +1,4 @@
-# Hello React — Micro-App (Vite + styled-components)
+# Hello React - Micro-App (Vite + styled-components)
 
 **Live:** https://a2rp.github.io/hello-react/  
 **Code:** https://github.com/a2rp/hello-react
