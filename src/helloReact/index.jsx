@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FiArrowUpRight, FiCheck, FiCode, FiRotateCcw, FiZap } from "react-icons/fi";
 import { Styled } from "./styled";
 
 /**
@@ -16,24 +17,22 @@ export default function HelloReact() {
     const [count, setCount] = useState(0);
 
     return (
-        <Styled.Wrapper>
+        <Styled.Wrapper id="hello-react">
             <Styled.Card role="region" aria-labelledby="hello-title">
                 <Styled.Header>
                     <div>
                         <Styled.Title id="hello-title">Hello React</Styled.Title>
                         <Styled.Sub>
-                            Vite + styled-components baseline with design tokens and a11y.
-                            This is your starting point for all micro-apps.
+                            A small interactive starter that demonstrates a clean React and Vite setup with accessible component-scoped styling.
                         </Styled.Sub>
                     </div>
                 </Styled.Header>
 
                 <Styled.Badges aria-label="Tech stack">
-                    <Styled.Badge>React 18</Styled.Badge>
-                    <Styled.Badge>Vite</Styled.Badge>
+                    <Styled.Badge><FiCode aria-hidden="true" /> React 18</Styled.Badge>
+                    <Styled.Badge><FiZap aria-hidden="true" /> Vite</Styled.Badge>
+                    <Styled.Badge><FiCheck aria-hidden="true" /> Accessible</Styled.Badge>
                     <Styled.Badge>styled-components</Styled.Badge>
-                    <Styled.Badge>Design Tokens</Styled.Badge>
-                    <Styled.Badge>A11y-friendly</Styled.Badge>
                 </Styled.Badges>
 
                 <Styled.Actions>
@@ -42,11 +41,11 @@ export default function HelloReact() {
                         aria-label="Increment demo counter"
                         title="Click to increment"
                     >
-                        Click Me ({count})
+                        <FiZap aria-hidden="true" /> Click Me ({count})
                     </Styled.Button>
 
                     <Styled.Button onClick={() => setCount(0)} title="Reset counter">
-                        Reset
+                        <FiRotateCcw aria-hidden="true" /> Reset
                     </Styled.Button>
 
                     <a
@@ -55,7 +54,7 @@ export default function HelloReact() {
                         rel="noreferrer"
                         aria-label="Open React documentation"
                     >
-                        <Styled.Button as="span" role="link">React Docs ↗</Styled.Button>
+                        <Styled.Button as="span" role="link"><FiArrowUpRight aria-hidden="true" /> React Docs</Styled.Button>
                     </a>
                 </Styled.Actions>
 

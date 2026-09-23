@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     min-height: 100dvh;
     display: grid;
     place-items: center;
-    padding: 24px;
+    padding: 100px 24px 48px;
     background: radial-gradient(
         1200px 800px at 20% 10%,
         color-mix(in oklab, #0f0f16 75%, #000 25%),
@@ -60,6 +60,9 @@ const Badges = styled.div`
 `;
 
 const Badge = styled.span`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     border-radius: 999px;
     padding: 6px 10px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -83,15 +86,15 @@ const Button = styled.button`
     padding: 10px 14px;
     border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.06s ease, box-shadow 0.12s ease,
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease,
         background 0.2s ease;
     &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        border-color: rgba(97, 218, 251, 0.55);
+        box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.1);
         background: #232636;
-    }
-    &:active {
-        transform: translateY(0);
     }
     &:focus-visible {
         outline: none;
