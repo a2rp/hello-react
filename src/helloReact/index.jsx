@@ -28,7 +28,7 @@ export default function HelloReact() {
                     </div>
                 </Styled.Header>
 
-                <Styled.Badges aria-label="Tech stack">
+                <Styled.Badges role="group" aria-label="Tech stack">
                     <Styled.Badge><FiCode aria-hidden="true" /> React 18</Styled.Badge>
                     <Styled.Badge><FiZap aria-hidden="true" /> Vite</Styled.Badge>
                     <Styled.Badge><FiCheck aria-hidden="true" /> Accessible</Styled.Badge>
@@ -48,14 +48,15 @@ export default function HelloReact() {
                         <FiRotateCcw aria-hidden="true" /> Reset
                     </Styled.Button>
 
-                    <a
+                    <Styled.Button
+                        as="a"
                         href="https://react.dev/"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Open React documentation"
                     >
-                        <Styled.Button as="span" role="link"><FiArrowUpRight aria-hidden="true" /> React Docs</Styled.Button>
-                    </a>
+                        <FiArrowUpRight aria-hidden="true" /> React Docs
+                    </Styled.Button>
                 </Styled.Actions>
 
                 <Styled.Footer>
@@ -67,7 +68,7 @@ export default function HelloReact() {
                     >
                         github.com/a2rp/hello-react
                     </a>
-                    &nbsp;• Live:&nbsp;
+                    &nbsp;| Live:&nbsp;
                     <a
                         href="https://a2rp.github.io/hello-react/"
                         target="_blank"

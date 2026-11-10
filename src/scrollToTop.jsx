@@ -13,7 +13,17 @@ export default function ScrollToTop() {
     }, []);
 
     return (
-        <TopButton type="button" data-visible={visible} aria-label="Scroll to top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <TopButton
+            type="button"
+            data-visible={visible}
+            disabled={!visible}
+            tabIndex={visible ? 0 : -1}
+            aria-label="Scroll to top"
+            onClick={() => {
+                const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+            }}
+        >
             <FiArrowUp aria-hidden="true" />
         </TopButton>
     );

@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiBookOpen, FiGithub, FiMenu, FiX } from "react-icons/fi";
 import styled from "styled-components";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const firstNavLinkRef = useRef(null);
+    const menuButtonRef = useRef(null);
     const close = () => setOpen(false);
+
+    useEffect(() => {
+        if (!open) return undefined;
+
+        const onKeyDown = (event) => {
+            if (event.key !== "Escape") return;
+            setOpen(false);
+            menuButtonRef.current?.focus();
+        };
+
+        if (window.matchMedia("(max-width: 620px)").matches) {
+            firstNavLinkRef.current?.focus();
+        }
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [open]);
 
     return (
         <HeaderWrap>
@@ -13,8 +31,8 @@ export default function Header() {
                     <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ashish Ranjan logo" />
                     <span><small>REACT STARTER</small><strong>Hello React</strong></span>
                 </Brand>
-                <Nav $open={open}>
-                    <NavLink href="#hello-react" onClick={close}>Demo</NavLink>
+                <Nav id="primary-navigation" $open={open}>
+                    <NavLink ref={firstNavLinkRef} href="#hello-react" onClick={close}>Demo</NavLink>
                     <NavLink href="https://react.dev/" target="_blank" rel="noopener noreferrer" onClick={close}>
                         <FiBookOpen aria-hidden="true" /> React docs
                     </NavLink>
@@ -22,7 +40,14 @@ export default function Header() {
                         <FiGithub aria-hidden="true" /> GitHub
                     </NavLink>
                 </Nav>
-                <MenuButton type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((value) => !value)}>
+                <MenuButton
+                    ref={menuButtonRef}
+                    type="button"
+                    aria-label={open ? "Close menu" : "Open menu"}
+                    aria-expanded={open}
+                    aria-controls="primary-navigation"
+                    onClick={() => setOpen((value) => !value)}
+                >
                     {open ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
                 </MenuButton>
             </HeaderInner>
