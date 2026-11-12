@@ -38,15 +38,19 @@ export default function HelloReact() {
                 <Styled.Actions>
                     <Styled.Button
                         onClick={() => setCount((c) => c + 1)}
-                        aria-label="Increment demo counter"
+                        aria-describedby="counter-value"
                         title="Click to increment"
                     >
-                        <FiZap aria-hidden="true" /> Click Me ({count})
+                        <FiZap aria-hidden="true" /> Click Me
                     </Styled.Button>
 
                     <Styled.Button onClick={() => setCount(0)} title="Reset counter">
                         <FiRotateCcw aria-hidden="true" /> Reset
                     </Styled.Button>
+
+                    <Styled.CounterOutput id="counter-value" aria-live="polite" aria-atomic="true">
+                        Count: {count}
+                    </Styled.CounterOutput>
 
                     <Styled.Button
                         as="a"

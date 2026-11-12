@@ -7,6 +7,12 @@ export default function Header() {
     const firstNavLinkRef = useRef(null);
     const menuButtonRef = useRef(null);
     const close = () => setOpen(false);
+    const closeNav = () => {
+        setOpen(false);
+        if (window.matchMedia("(max-width: 620px)").matches) {
+            menuButtonRef.current?.focus();
+        }
+    };
 
     useEffect(() => {
         if (!open) return undefined;
@@ -32,11 +38,11 @@ export default function Header() {
                     <span><small>REACT STARTER</small><strong>Hello React</strong></span>
                 </Brand>
                 <Nav id="primary-navigation" $open={open}>
-                    <NavLink ref={firstNavLinkRef} href="#hello-react" onClick={close}>Demo</NavLink>
-                    <NavLink href="https://react.dev/" target="_blank" rel="noopener noreferrer" onClick={close}>
+                    <NavLink ref={firstNavLinkRef} href="#hello-react" onClick={closeNav}>Demo</NavLink>
+                    <NavLink href="https://react.dev/" target="_blank" rel="noopener noreferrer" onClick={closeNav}>
                         <FiBookOpen aria-hidden="true" /> React docs
                     </NavLink>
-                    <NavLink href="https://github.com/a2rp/hello-react" target="_blank" rel="noopener noreferrer" onClick={close}>
+                    <NavLink href="https://github.com/a2rp/hello-react" target="_blank" rel="noopener noreferrer" onClick={closeNav}>
                         <FiGithub aria-hidden="true" /> GitHub
                     </NavLink>
                 </Nav>

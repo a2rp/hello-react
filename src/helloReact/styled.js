@@ -78,6 +78,18 @@ const Actions = styled.div`
     margin-top: 18px;
 `;
 
+const CounterOutput = styled.output`
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: var(--muted, #a2a6b3);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+`;
+
 const Button = styled.button`
     appearance: none;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -122,6 +134,7 @@ export const Styled = {
     Badges,
     Badge,
     Actions,
+    CounterOutput,
     Button,
     Footer,
 };
